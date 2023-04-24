@@ -48,7 +48,7 @@ public class Product {
     @Column(name = "sell_price")
     private Double sellPrice;
 
-    @Column(name = "origin-price")
+    @Column(name = "origin_price")
     private Double originPrice;
 
     @Column(name = "description")
