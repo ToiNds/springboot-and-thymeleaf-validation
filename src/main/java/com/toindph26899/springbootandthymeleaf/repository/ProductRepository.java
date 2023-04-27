@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
+    // custom query
     @Query("\n" +
             "select new com.toindph26899.springbootandthymeleaf.response.ProductResponse(p.id, p.productCode, " +
             "p.productName, ca.categoryName, co.companyName, s.statusName, p.sellPrice) " +

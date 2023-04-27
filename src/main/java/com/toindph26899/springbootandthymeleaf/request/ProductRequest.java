@@ -57,7 +57,6 @@ public class ProductRequest {
 
     @NotNull(message = "Khong duoc bo trong, Vui long nhap sell price")
     @Min(value = 1, message = "Gia ban khong duoc nho hon gia goc")
-    @PriceValidation
     private Double sellPrice;
 
 }

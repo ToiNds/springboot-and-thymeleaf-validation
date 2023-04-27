@@ -1,30 +1,29 @@
 package com.toindph26899.springbootandthymeleaf.validation.impl;
 
-import com.toindph26899.springbootandthymeleaf.entities.Product;
+import com.toindph26899.springbootandthymeleaf.request.ProductRequest;
 import com.toindph26899.springbootandthymeleaf.validation.PriceValidation;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
 
-public class PriceValidationConstraint implements ConstraintValidator<PriceValidation, Object> {
+import java.lang.reflect.Field;
 
-    String message;
+public class PriceValidationConstraint implements ConstraintValidator<PriceValidation, Double> {
 
     @Override
     public void initialize(PriceValidation constraintAnnotation) {
-        message = constraintAnnotation.message();
     }
 
     @Override
-    public boolean isValid(Object value, ConstraintValidatorContext context) {
-
-        Product product = (Product) value;
-        Double sellPrice = product.getSellPrice();
-        Double originPrice = product.getOriginPrice();
-
-        if (sellPrice <= originPrice) {
-            return false;
-        } else {
-            return true;
-        }
+    public boolean isValid(Double value, ConstraintValidatorContext context) {
+//        if(value == null) {
+//            return true;
+//        }
+//
+//        ConstraintValidatorContextImpl constraintValidatorContext =
+//                context.unwrap(ConstraintValidatorContextImpl.class);
+//        ProductRequest productRequest =
+//                (ProductRequest) constraintValidatorContext.getRootBean();
+        return true;
     }
 }
